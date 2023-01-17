@@ -8,6 +8,11 @@
     font-size: 62.5%;
 
     --txt-black: #323238;
+
+    --bg-btnSounds: #E1E1E6;
+    --bg-btnSounds-hover: #02799D;
+
+    --color-fill-hover-iconeSounds: #FFFFFF;
 }
 
 body {
@@ -36,9 +41,8 @@ body {
 }
 
 #timerAndControls span{
-    font-size: 12.6rem;
-    line-height: 14.8rem;
-    
+    font-size: clamp(1.6rem, 1.6rem + 15vw, 12.6rem);
+
     text-align: center;
     text-transform: uppercase;
     
@@ -72,14 +76,14 @@ body {
 #typesOfSounds button{
     border: none;
     padding: 4.8rem;
-    background: #E1E1E6;
-    border-radius: 24px;
+    background: var(--bg-btnSounds);
+    border-radius: 2.4rem;
 
     transition: all .2s;
 }
 
 #typesOfSounds button:hover{
-    background: #02799D;
+    background: var(--bg-btnSounds-hover);
     transform: scale(1.1);
     cursor: pointer;
 }
@@ -89,5 +93,45 @@ body {
 }
 
 #typesOfSounds button:hover svg path{
-    fill: #FFFFFF;
+    fill: var(--color-fill-hover-iconeSounds);
+}
+
+@media (max-width: 47.938em){
+    body{
+        position: relative;
+    }
+    #container{
+        flex-direction: column;
+    }
+
+    #timerAndControls .controls button svg{
+        width: 3.5rem;
+    }
+
+    #typesOfSounds{
+        grid-template-areas: 
+        "A"
+        ;
+        gap: 1rem;
+        position: absolute;
+        right: 3vw;
+        top: 3vw;
+    }
+    
+    #typesOfSounds button{
+        padding: 1rem;
+        border-radius: .5rem;
+
+        transition: all .2s;
+    }
+    
+    #typesOfSounds button svg{
+        width: 3rem;
+        height: 3rem;
+    }
+
+    #timerAndControls .controls button svg{
+        width: clamp(3rem, 7vw, 4.8rem);
+        height: clamp(3rem, 7vw, 4.8rem);
+    }
 }

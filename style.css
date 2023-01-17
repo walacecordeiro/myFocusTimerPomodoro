@@ -6,9 +6,88 @@
 
 :root {
     font-size: 62.5%;
+
+    --txt-black: #323238;
 }
 
 body {
     font-size: 1.6rem;
     font-family: 'Roboto', sans-serif;
+
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+}
+
+.hide{
+    display: none;
+}
+
+#container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    max-width: 82.1rem;
+}
+
+#timerAndControls{
+    text-align: center;
+}
+
+#timerAndControls span{
+    font-size: 12.6rem;
+    line-height: 14.8rem;
+    
+    text-align: center;
+    text-transform: uppercase;
+    
+    color: var(--txt-black);
+}
+
+#timerAndControls .controls{
+    display: flex;
+    justify-content: space-between;
+}
+
+#timerAndControls .controls button{
+    border: none;
+    background-color: transparent;
+    transition: all .2s;
+}
+
+#timerAndControls .controls button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+#typesOfSounds{
+    display: grid;
+    grid-template-areas: 
+    "A B"
+    ;
+    gap: 3.2rem;
+}
+
+#typesOfSounds button{
+    border: none;
+    padding: 4.8rem;
+    background: #E1E1E6;
+    border-radius: 24px;
+
+    transition: all .2s;
+}
+
+#typesOfSounds button:hover{
+    background: #02799D;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+#typesOfSounds button svg path{
+    transition: .2s;
+}
+
+#typesOfSounds button:hover svg path{
+    fill: #FFFFFF;
 }

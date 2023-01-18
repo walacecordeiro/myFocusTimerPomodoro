@@ -5,17 +5,32 @@ const btnSet = document.querySelector('.set')
 
 let minutes
 const minutesDisplay = document.querySelector('.minutes')
-let secondsDisplay = document.querySelector('.seconds')
+const secondsDisplay = document.querySelector('.seconds')
 
 function cowntDown(){
     setTimeout(() => {
         let seconds = Number(secondsDisplay.textContent)
+        let minutes = Number(minutesDisplay.textContent)
+        
+        // secondsDisplay.textContent = String(seconds - 1).padStart(2, '0')
+
+        if(minutes <= 0 && seconds == 0){
+            btnPause.classList.add('hide')
+            btnPlay.classList.remove('hide')
+            btnStop.classList.add('hide')
+            btnSet.classList.remove('hide')
+            btnSet.classList.add('effects')
+
+            return
+        }
 
         if (seconds <= 0){
-            seconds = 60
+            seconds = 5
+
+            minutesDisplay.textContent = String(minutes -1).padStart(2, '0')
         }
-        
-        secondsDisplay.textContent = seconds - 1
+
+        secondsDisplay.textContent = String(seconds - 1).padStart(2, '0')
 
         cowntDown()
     }, 1000)
@@ -29,11 +44,6 @@ btnPlay.addEventListener('click', () => {
     
     cowntDown()
 })
-
-function timer(){
-    --secondsDisplay
-    console.log(secondsDisplay)
-}
 
 btnPause.addEventListener('click', () => {
     btnPause.classList.add('hide')
@@ -50,5 +60,5 @@ btnStop.addEventListener('click', () => {
 
 btnSet.addEventListener('click', () => {
     minutes = prompt('Quantos minutos?')
-    minutesDisplay.textContent = minutes
+    minutesDisplay.textContent = String(minutes).padStart(2, '0')
 })

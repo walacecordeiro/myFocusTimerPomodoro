@@ -3,9 +3,28 @@ const btnPause = document.querySelector('.pause')
 const btnStop = document.querySelector('.stop')
 const btnSet = document.querySelector('.set')
 
-let minutes
+let timerTimeOut
+
 const minutesDisplay = document.querySelector('.minutes')
 const secondsDisplay = document.querySelector('.seconds')
+
+let minutes = Number(minutesDisplay.textContent)
+
+function play(){
+    btnPlay.classList.add('hide', 'effects')
+    btnPause.classList.remove('hide')
+    btnSet.classList.add('hide')
+    btnStop.classList.remove('hide')
+    
+    cowntDown()
+}
+
+function pause(){
+    btnPause.classList.add('hide')
+    btnPlay.classList.remove('hide')
+
+    clearTimeout(timerTimeOut)
+}
 
 function resetControls(){
     btnPause.classList.add('hide')
@@ -15,13 +34,30 @@ function resetControls(){
     btnSet.classList.add('effects')    
 }
 
+function setTime(){
+    let newMinutes = prompt('Quantos minutos?')
+
+    if(!newMinutes){
+        resetTimer()
+        return
+    }
+
+    minutes = newMinutes
+    updateTimerDisplay(minutes, 0)
+}
+
+function resetTimer(){
+    updateTimerDisplay(minutes, 0)
+    clearTimeout(timerTimeOut)
+}
+
 function updateTimerDisplay(minutes, seconds){
     minutesDisplay.textContent = String(minutes).padStart(2, '0')
     secondsDisplay.textContent = String(seconds).padStart(2, '0')
 }
 
 function cowntDown(){
-    setTimeout(() => {
+    timerTimeOut = setTimeout(() => {
         let seconds = Number(secondsDisplay.textContent)
         let minutes = Number(minutesDisplay.textContent)
         
@@ -46,24 +82,39 @@ function cowntDown(){
 
 
 btnPlay.addEventListener('click', () => {
-    btnPlay.classList.add('hide', 'effects')
-    btnPause.classList.remove('hide')
-    btnSet.classList.add('hide')
-    btnStop.classList.remove('hide')
-    
-    cowntDown()
+    play()
+})
+
+addEventListener('keypress', function (event){
+    if(event.key === 'Enter' && btnPlay.classList == ('play')){
+        event.preventDefault()
+        play()
+    } else if(event.key === 'Enter' && btnPause.classList == ('pause effects')){
+        pause()
+    } else if(event.key === 'Enter'){
+        event.preventDefault()
+        play()
+    }
+
 })
 
 btnPause.addEventListener('click', () => {
-    btnPause.classList.add('hide')
-    btnPlay.classList.remove('hide')
+    pause()
 })
 
 btnStop.addEventListener('click', () => {
    resetControls()
+   resetTimer()
 })
 
 btnSet.addEventListener('click', () => {
-    minutes = prompt('Quantos minutos?')
-    updateTimerDisplay(minutes, 0)
+    setTime()
 })
+
+document.onkeydown = function (event){
+    if(event.key === 'Escape'){
+        resetControls()
+        resetTimer()
+        setTime()
+    }
+}

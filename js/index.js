@@ -1,3 +1,7 @@
+import resetControls from "./controls.js"
+import "./timer.js"
+
+
 const btnPlay = document.querySelector('.play')
 const btnPause = document.querySelector('.pause')
 const btnStop = document.querySelector('.stop')
@@ -24,14 +28,6 @@ function pause(){
     btnPlay.classList.remove('hide')
 
     clearTimeout(timerTimeOut)
-}
-
-function resetControls(){
-    btnPause.classList.add('hide')
-    btnPlay.classList.remove('hide')
-    btnStop.classList.add('hide')
-    btnSet.classList.remove('hide')
-    btnSet.classList.add('effects')    
 }
 
 function setTime(){

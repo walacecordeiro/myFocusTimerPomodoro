@@ -7,34 +7,43 @@ let minutes
 const minutesDisplay = document.querySelector('.minutes')
 const secondsDisplay = document.querySelector('.seconds')
 
+function resetControls(){
+    btnPause.classList.add('hide')
+    btnPlay.classList.remove('hide')
+    btnStop.classList.add('hide')
+    btnSet.classList.remove('hide')
+    btnSet.classList.add('effects')    
+}
+
+function updateTimerDisplay(minutes, seconds){
+    minutesDisplay.textContent = String(minutes).padStart(2, '0')
+    secondsDisplay.textContent = String(seconds).padStart(2, '0')
+}
+
 function cowntDown(){
     setTimeout(() => {
         let seconds = Number(secondsDisplay.textContent)
         let minutes = Number(minutesDisplay.textContent)
         
-        // secondsDisplay.textContent = String(seconds - 1).padStart(2, '0')
-
+        updateTimerDisplay(minutes, 0)
+        
         if(minutes <= 0 && seconds == 0){
-            btnPause.classList.add('hide')
-            btnPlay.classList.remove('hide')
-            btnStop.classList.add('hide')
-            btnSet.classList.remove('hide')
-            btnSet.classList.add('effects')
-
+            resetControls()
             return
         }
-
+        
         if (seconds <= 0){
-            seconds = 5
-
-            minutesDisplay.textContent = String(minutes -1).padStart(2, '0')
+            seconds = 2
+            
+            --minutes
         }
-
-        secondsDisplay.textContent = String(seconds - 1).padStart(2, '0')
-
+        
+        updateTimerDisplay(minutes, String(seconds - 1))
+        
         cowntDown()
     }, 1000)
 }
+
 
 btnPlay.addEventListener('click', () => {
     btnPlay.classList.add('hide', 'effects')
@@ -51,14 +60,10 @@ btnPause.addEventListener('click', () => {
 })
 
 btnStop.addEventListener('click', () => {
-    btnPause.classList.add('hide')
-    btnPlay.classList.remove('hide')
-    btnStop.classList.add('hide')
-    btnSet.classList.remove('hide')
-    btnSet.classList.add('effects')
+   resetControls()
 })
 
 btnSet.addEventListener('click', () => {
     minutes = prompt('Quantos minutos?')
-    minutesDisplay.textContent = String(minutes).padStart(2, '0')
+    updateTimerDisplay(minutes, 0)
 })

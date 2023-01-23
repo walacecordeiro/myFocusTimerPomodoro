@@ -1,5 +1,5 @@
 import resetControls from "./controls.js"
-import "./timer.js"
+import {cowntDown, resetTimer} from "./timer.js"
 
 
 const btnPlay = document.querySelector('.play')
@@ -7,12 +7,12 @@ const btnPause = document.querySelector('.pause')
 const btnStop = document.querySelector('.stop')
 const btnSet = document.querySelector('.set')
 
-let timerTimeOut
 
 const minutesDisplay = document.querySelector('.minutes')
 const secondsDisplay = document.querySelector('.seconds')
 
 let minutes = Number(minutesDisplay.textContent)
+let timerTimeOut
 
 function play(){
     btnPlay.classList.add('hide', 'effects')
@@ -41,41 +41,6 @@ function setTime(){
     minutes = newMinutes
     updateTimerDisplay(minutes, 0)
 }
-
-function resetTimer(){
-    updateTimerDisplay(minutes, 0)
-    clearTimeout(timerTimeOut)
-}
-
-function updateTimerDisplay(minutes, seconds){
-    minutesDisplay.textContent = String(minutes).padStart(2, '0')
-    secondsDisplay.textContent = String(seconds).padStart(2, '0')
-}
-
-function cowntDown(){
-    timerTimeOut = setTimeout(() => {
-        let seconds = Number(secondsDisplay.textContent)
-        let minutes = Number(minutesDisplay.textContent)
-        
-        updateTimerDisplay(minutes, 0)
-        
-        if(minutes <= 0 && seconds == 0){
-            resetControls()
-            return
-        }
-        
-        if (seconds <= 0){
-            seconds = 2
-            
-            --minutes
-        }
-        
-        updateTimerDisplay(minutes, String(seconds - 1))
-        
-        cowntDown()
-    }, 1000)
-}
-
 
 btnPlay.addEventListener('click', () => {
     play()

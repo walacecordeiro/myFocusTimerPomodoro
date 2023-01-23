@@ -1,6 +1,5 @@
-import resetControls from "./controls.js"
-import {cowntDown, resetTimer} from "./timer.js"
-
+import Controls from "./controls.js"
+import Timer from "./timer.js"
 
 const btnPlay = document.querySelector('.play')
 const btnPause = document.querySelector('.pause')
@@ -11,71 +10,52 @@ const btnSet = document.querySelector('.set')
 const minutesDisplay = document.querySelector('.minutes')
 const secondsDisplay = document.querySelector('.seconds')
 
-let minutes = Number(minutesDisplay.textContent)
-let timerTimeOut
+const controls = Controls({
+    btnPlay,
+    btnPause,
+    btnSet,
+    btnStop
+})
 
-function play(){
-    btnPlay.classList.add('hide', 'effects')
-    btnPause.classList.remove('hide')
-    btnSet.classList.add('hide')
-    btnStop.classList.remove('hide')
-    
-    cowntDown()
-}
-
-function pause(){
-    btnPause.classList.add('hide')
-    btnPlay.classList.remove('hide')
-
-    clearTimeout(timerTimeOut)
-}
-
-function setTime(){
-    let newMinutes = prompt('Quantos minutos?')
-
-    if(!newMinutes){
-        resetTimer()
-        return
-    }
-
-    minutes = newMinutes
-    updateTimerDisplay(minutes, 0)
-}
+const timer = Timer({
+    minutesDisplay,
+    secondsDisplay,
+    resetControls: controls.reset
+})
 
 btnPlay.addEventListener('click', () => {
-    play()
+    controls.play()
+    timer.cowntDown()
 })
 
-addEventListener('keypress', function (event){
-    if(event.key === 'Enter' && btnPlay.classList == ('play')){
-        event.preventDefault()
-        play()
-    } else if(event.key === 'Enter' && btnPause.classList == ('pause effects')){
-        pause()
-    } else if(event.key === 'Enter'){
-        event.preventDefault()
-        play()
-    }
-
-})
+controls.startPauseKey()
 
 btnPause.addEventListener('click', () => {
-    pause()
+    controls.pause()
+    timer.hold()
 })
 
 btnStop.addEventListener('click', () => {
-   resetControls()
-   resetTimer()
+   controls.reset()
+   timer.reset()
 })
 
 btnSet.addEventListener('click', () => {
-    setTime()
+    let newMinutes = controls.getMinutes()
+
+    if(!newMinutes){
+        timer.reset()
+        return
+    }
+
+    timer.updateDisplay(newMinutes, 0)
+    timer.updateMinutes(newMinutes)
 })
 
 document.onkeydown = function (event){
     if(event.key === 'Escape'){
-        resetControls()
-        resetTimer()
+        controls.reset()
+        timer.reset()
         setTime()
     }
 }

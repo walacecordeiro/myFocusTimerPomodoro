@@ -1,3 +1,6 @@
+// import Timer from "./timer"
+
+
 export default function Controls({
     btnPlay,
     btnPause,
@@ -17,20 +20,20 @@ export default function Controls({
         btnPlay.classList.remove('hide')
     }
     
-    function startPauseKey(){
-        addEventListener('keypress', function (event){
-            if(event.key === 'Enter' && btnPlay.classList == ('play')){
-                event.preventDefault()
-                play()
-            } else if(event.key === 'Enter' && btnPause.classList == ('pause effects')){
-                pause()
-            } else if(event.key === 'Enter'){
-                event.preventDefault()
-                play()
-            }
+    // function startPauseKey(){
+    //     addEventListener('keypress', function (event){
+    //         if(event.key === 'Enter' && btnPlay.classList == ('play')){
+    //             event.preventDefault()
+    //             play()
+    //         } else if(event.key === 'Enter' && btnPause.classList == ('pause effects')){
+    //             pause()
+    //         } else if(event.key === 'Enter'){
+    //             event.preventDefault()
+    //             play()
+    //         }
         
-        })
-    }
+    //     })
+    // }
 
     function reset() {
         btnPause.classList.add('hide')
@@ -55,7 +58,7 @@ export default function Controls({
         reset,
         play,
         pause,
-        startPauseKey,
+        // startPauseKey,
         getMinutes
     }
 }

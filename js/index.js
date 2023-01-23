@@ -28,7 +28,7 @@ btnPlay.addEventListener('click', () => {
     timer.cowntDown()
 })
 
-controls.startPauseKey()
+// controls.startPauseKey()
 
 btnPause.addEventListener('click', () => {
     controls.pause()
@@ -52,10 +52,10 @@ btnSet.addEventListener('click', () => {
     timer.updateMinutes(newMinutes)
 })
 
-document.onkeydown = function (event){
-    if(event.key === 'Escape'){
-        controls.reset()
-        timer.reset()
-        setTime()
-    }
-}
+// document.onkeydown = function (event){
+//     if(event.key === 'Escape'){
+//         controls.reset()
+//         timer.reset()
+//         setTime()
+//     }
+// }

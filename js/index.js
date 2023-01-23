@@ -5,6 +5,8 @@ const btnPlay = document.querySelector('.play')
 const btnPause = document.querySelector('.pause')
 const btnStop = document.querySelector('.stop')
 const btnSet = document.querySelector('.set')
+const fiveMoreMinutesBtn = document.querySelector(".fiveMoreMinutesBtn")
+const minusFiveMinutesBtn = document.querySelector(".minusFiveMinutesBtn")
 
 
 const minutesDisplay = document.querySelector('.minutes')
@@ -21,6 +23,10 @@ const timer = Timer({
     minutesDisplay,
     secondsDisplay,
     resetControls: controls.reset
+})
+
+minusFiveMinutesBtn.addEventListener('click', () => {
+    timer.minusFiveMinutes()
 })
 
 btnPlay.addEventListener('click', () => {
@@ -50,6 +56,10 @@ btnSet.addEventListener('click', () => {
 
     timer.updateDisplay(newMinutes, 0)
     timer.updateMinutes(newMinutes)
+})
+
+fiveMoreMinutesBtn.addEventListener('click', () => {
+    timer.moreFiveMinutes()
 })
 
 // document.onkeydown = function (event){

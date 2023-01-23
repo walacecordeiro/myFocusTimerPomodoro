@@ -1,3 +1,5 @@
+// import Controls from "./controls"
+
 export default function Timer({
     minutesDisplay,
     secondsDisplay,
@@ -45,12 +47,37 @@ export default function Timer({
         }, 1000)
     }
 
-    function updateMinutes(newMinutes){
+    function updateMinutes(newMinutes) {
         minutes = newMinutes
     }
 
-    function hold(){
-        clearTimeout(timerTimeOut) 
+    function moreFiveMinutes() {
+        let currentMinutes = Number(minutesDisplay.textContent)
+        let currentSeconds = Number(secondsDisplay.textContent)
+
+        currentMinutes += 5
+        updateDisplay(currentMinutes, currentSeconds)
+    }
+
+    function minusFiveMinutes() {
+        let currentMinutes = Number(minutesDisplay.textContent)
+        let currentSeconds = Number(secondsDisplay.textContent)
+
+        currentMinutes -= 5
+        updateDisplay(currentMinutes, currentSeconds)
+
+        if (currentMinutes <= 0) {
+            alert(`🔴Não é possível tirar 5 minutos
+
+➡ seu cronômetro será resetado!`)
+            reset()
+            resetControls()
+            updateDisplay()
+        }
+    }
+
+    function hold() {
+        clearTimeout(timerTimeOut)
     }
 
     return {
@@ -58,6 +85,8 @@ export default function Timer({
         reset,
         updateDisplay,
         updateMinutes,
+        moreFiveMinutes,
+        minusFiveMinutes,
         hold
     }
 }

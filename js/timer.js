@@ -1,4 +1,4 @@
-// import Controls from "./controls"
+import Sounds from "./sounds.js"
 
 export default function Timer({
     minutesDisplay,
@@ -32,6 +32,7 @@ export default function Timer({
             if (isFinished) {
                 resetControls()
                 updateDisplay()
+                Sounds().timeEnd()
                 return
             }
 
@@ -68,7 +69,6 @@ export default function Timer({
 
         if (currentMinutes <= 0) {
             alert(`🔴Não é possível tirar 5 minutos
-
 ➡ seu cronômetro será resetado!`)
             reset()
             resetControls()

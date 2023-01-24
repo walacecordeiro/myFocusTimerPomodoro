@@ -19,21 +19,6 @@ export default function Controls({
         btnPause.classList.add('hide')
         btnPlay.classList.remove('hide')
     }
-    
-    // function startPauseKey(){
-    //     addEventListener('keypress', function (event){
-    //         if(event.key === 'Enter' && btnPlay.classList == ('play')){
-    //             event.preventDefault()
-    //             play()
-    //         } else if(event.key === 'Enter' && btnPause.classList == ('pause effects')){
-    //             pause()
-    //         } else if(event.key === 'Enter'){
-    //             event.preventDefault()
-    //             play()
-    //         }
-        
-    //     })
-    // }
 
     function reset() {
         btnPause.classList.add('hide')

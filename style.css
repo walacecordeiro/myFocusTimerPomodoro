@@ -109,11 +109,18 @@ body {
     cursor: pointer;
 }
 
-#typesOfSounds button svg path{
+#typesOfSounds button .fill{
     transition: .2s;
 }
 
-#typesOfSounds button:hover svg path{
+#typesOfSounds button:hover .fill{
+    fill: var(--color-fill-hover-iconeSounds);
+}
+
+.activeSoundBg{
+    background: var(--bg-btnSounds-hover) !important;
+}
+.activeSoundFill{
     fill: var(--color-fill-hover-iconeSounds);
 }
 

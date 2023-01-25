@@ -10,7 +10,7 @@
     --txt-black: #323238;
 
     --bg-btnSounds: #E1E1E6;
-    --bg-btnSounds-hover: #02799D;
+    --bg--btnSoundsOn: #02799D;
 
     --color-fill-hover-iconeSounds: #FFFFFF;
 }
@@ -109,7 +109,7 @@ body {
 }
 
 .activeSoundBg{
-    background: var(--bg-btnSounds-hover) !important;
+    background: var(--bg--btnSoundsOn) !important;
 }
 /* .activeSoundFill{
     fill: var(--color-fill-hover-iconeSounds);
@@ -143,6 +143,7 @@ body {
         position: absolute;
         right: 3vw;
         top: 3vw;
+        animation: downUp 3s 1s backwards;
     }
     
     #typesOfSounds button{
@@ -173,5 +174,17 @@ body {
 
     to{
         transform: scale(1.1);
+    }
+}
+
+@keyframes downUp{
+    from{
+        opacity: 0;
+        transform: translateY(100vw);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0);
     }
 }

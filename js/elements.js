@@ -20,7 +20,7 @@ const coffeeShopBtnOn = document.querySelector('.coffeeShopBtnOn')
 const bonfireBtn = document.querySelector('.bonfireBtn')
 const bonfireBtnOn = document.querySelector('.bonfireBtnOn')
 
-export const elements = {
+export {
     btnPlay,
     btnPause,
     btnStop,

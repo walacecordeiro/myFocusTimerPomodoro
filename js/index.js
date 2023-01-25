@@ -107,56 +107,58 @@ minusFiveMinutesBtn.addEventListener('click', () => {
 })
 
 forestBtn.addEventListener('click', () => {
-    const fillSoundIcone = document.getElementsByClassName('fill').item(0)
-    forestBtn.classList.toggle(`activeSoundBg`)
+    const fillSoundIcone = document.getElementsByClassName('fill')[0]
     fillSoundIcone.classList.toggle(`activeSoundFill`)
+    forestBtn.classList.toggle(`activeSoundBg`)
     
-    if (forestBtn.classList.contains('activeSoundBg')){
-        sounds.forestBtnAudio.play()
+    if (forestBtn.classList.contains('activeSoundBg')) {
+        sounds.bgAudio[0].play()
     } else {
-        sounds.forestBtnAudio.pause()
+        sounds.bgAudio[0].pause()
     }
-    
+   
     forestBtn.blur()
 })
 
+
 rainBtn.addEventListener('click', () => {
-    const fillSoundIcone = document.getElementsByClassName('fill').item(1)
+    const fillSoundIcone = document.getElementsByClassName('fill')[1]
     rainBtn.classList.toggle(`activeSoundBg`)
     fillSoundIcone.classList.toggle(`activeSoundFill`)
     
-    if (rainBtn.classList.contains('activeSoundBg')){
-        sounds.rainBtnAudio.play()
+    if (rainBtn.classList.contains('activeSoundBg')) {
+        sounds.bgAudio[1].play()
     } else {
-        sounds.rainBtnAudio.pause()
+        sounds.bgAudio[1].pause()
     }
-
+    
     rainBtn.blur()
 })
 
 coffeeShopBtn.addEventListener('click', () => {
-    const fillSoundIcone = document.getElementsByClassName('fill').item(2)
+    const fillSoundIcone = document.getElementsByClassName('fill')[2]
     coffeeShopBtn.classList.toggle(`activeSoundBg`)
     fillSoundIcone.classList.toggle(`activeSoundFill`)
-    
-    if (coffeeShopBtn.classList.contains('activeSoundBg')){
-        sounds.coffeeShopBtnAudio.play()
+
+    if (coffeeShopBtn.classList.contains('activeSoundBg')) {
+        sounds.bgAudio[2].play()
     } else {
-        sounds.coffeeShopBtnAudio.pause()
+        sounds.bgAudio[2].pause()
     }
 
     coffeeShopBtn.blur()
 })
 
 bonfireBtn.addEventListener('click', () => {
-    const fillSoundIcone = document.getElementsByClassName('fill').item(3)
+    const fillSoundIcone = document.getElementsByClassName('fill')[3]
     bonfireBtn.classList.toggle(`activeSoundBg`)
     fillSoundIcone.classList.toggle(`activeSoundFill`)
-    
-    if (bonfireBtn.classList.contains('activeSoundBg')){
-        sounds.bonfireBtnAudio.play()
+
+    if (bonfireBtn.classList.contains('activeSoundBg')) {
+        sounds.bgAudio[3].play()
     } else {
-        sounds.bonfireBtnAudio.pause()
+        sounds.bgAudio[3].pause()
     }
+
     bonfireBtn.blur()
 })

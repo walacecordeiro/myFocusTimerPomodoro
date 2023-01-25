@@ -12,9 +12,13 @@ const secondsDisplay = document.querySelector('.seconds')
 
 //  SOUNDS
 const forestBtn = document.querySelector('.forestBtn')
+const forestBtnOn = document.querySelector('.forestBtnOn')
 const rainBtn = document.querySelector('.rainBtn')
+const rainBtnOn = document.querySelector('.rainBtnOn')
 const coffeeShopBtn = document.querySelector('.coffeeShopBtn')
+const coffeeShopBtnOn = document.querySelector('.coffeeShopBtnOn')
 const bonfireBtn = document.querySelector('.bonfireBtn')
+const bonfireBtnOn = document.querySelector('.bonfireBtnOn')
 
 export const elements = {
     btnPlay,
@@ -28,7 +32,11 @@ export const elements = {
     secondsDisplay,
     
     forestBtn,
+    forestBtnOn,
     rainBtn,
+    rainBtnOn,
     coffeeShopBtn,
-    bonfireBtn
+    coffeeShopBtnOn,
+    bonfireBtn,
+    bonfireBtnOn
 }

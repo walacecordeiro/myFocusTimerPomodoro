@@ -104,25 +104,16 @@ body {
 }
 
 #typesOfSounds button:hover{
-    background: var(--bg-btnSounds-hover);
     transform: scale(1.1);
     cursor: pointer;
-}
-
-#typesOfSounds button .fill{
-    transition: .2s;
-}
-
-#typesOfSounds button:hover .fill{
-    fill: var(--color-fill-hover-iconeSounds);
 }
 
 .activeSoundBg{
     background: var(--bg-btnSounds-hover) !important;
 }
-.activeSoundFill{
+/* .activeSoundFill{
     fill: var(--color-fill-hover-iconeSounds);
-}
+} */
 
 /*  MOBILE */
 
@@ -170,6 +161,7 @@ body {
         width: clamp(3rem, 7vw, 4.8rem);
         height: clamp(3rem, 7vw, 4.8rem);
     }
+
 }
 
 /*  ANIMATIONS */

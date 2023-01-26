@@ -24,6 +24,12 @@ const bonfireBtnOn = document.querySelector('.bonfireBtnOn')
 const btnLightMode = document.querySelector('.lightMode')
 const btnDarkMode = document.querySelector('.darkMode')
 
+//  VOLUME INPUT
+const volForest = forestBtnOn.querySelector('input')
+const volRain = rainBtnOn.querySelector('input')
+const volCoffeeShop = coffeeShopBtnOn.querySelector('input')
+const volBonfire = bonfireBtnOn.querySelector('input')
+
 export {
     btnPlay,
     btnPause,
@@ -45,5 +51,10 @@ export {
     bonfireBtnOn,
 
     btnLightMode,
-    btnDarkMode
+    btnDarkMode,
+
+    volForest,
+    volRain,
+    volCoffeeShop,
+    volBonfire
 }

@@ -17,7 +17,11 @@ import {
     bonfireBtnOn,
 
     btnLightMode,
-    btnDarkMode
+    btnDarkMode,
+    volForest,
+    volRain,
+    volCoffeeShop,
+    volBonfire
 } from "./elements.js"
 
 export default function ({controls, timer, sounds}) {
@@ -95,14 +99,28 @@ export default function ({controls, timer, sounds}) {
         forestBtn.blur()
     })
 
-    forestBtnOn.addEventListener('click', () => {
+    // forestBtnOn.addEventListener('click', () => {
+    //     forestBtnOn.classList.add(`hide`)
+    //     forestBtn.classList.remove(`hide`)
+
+    //     sounds.bgAudio[0].pause()
+
+    //     forestBtnOn.blur()
+    // })
+    
+    forestBtnOn.children[0].addEventListener('click', () => {
         forestBtnOn.classList.add(`hide`)
         forestBtn.classList.remove(`hide`)
 
         sounds.bgAudio[0].pause()
 
-        forestBtn.blur()
+        forestBtnOn.blur()
     })
+
+    volForest.addEventListener('input', () => {
+        sounds.bgAudio[0].volume = volForest.value
+    })
+
 
     rainBtn.addEventListener('click', () => {
         rainBtn.classList.add(`hide`)
@@ -113,13 +131,17 @@ export default function ({controls, timer, sounds}) {
         rainBtn.blur()
     })
 
-    rainBtnOn.addEventListener('click', () => {
+    rainBtnOn.children[0].addEventListener('click', () => {
         rainBtnOn.classList.add(`hide`)
         rainBtn.classList.remove(`hide`)
 
         sounds.bgAudio[1].pause()
 
         rainBtnOn.blur()
+    })
+
+    volRain.addEventListener('input', () => {
+        sounds.bgAudio[1].volume = volRain.value
     })
 
     coffeeShopBtn.addEventListener('click', () => {
@@ -131,13 +153,17 @@ export default function ({controls, timer, sounds}) {
         coffeeShopBtn.blur()
     })
 
-    coffeeShopBtnOn.addEventListener('click', () => {
+    coffeeShopBtnOn.children[0].addEventListener('click', () => {
         coffeeShopBtnOn.classList.add(`hide`)
         coffeeShopBtn.classList.remove(`hide`)
 
         sounds.bgAudio[2].pause()
 
         coffeeShopBtnOn.blur()
+    })
+
+    volCoffeeShop.addEventListener('input', () => {
+        sounds.bgAudio[2].volume = volCoffeeShop.value
     })
 
     bonfireBtn.addEventListener('click', () => {
@@ -149,13 +175,17 @@ export default function ({controls, timer, sounds}) {
         bonfireBtn.blur()
     })
 
-    bonfireBtnOn.addEventListener('click', () => {
+    bonfireBtnOn.children[0].addEventListener('click', () => {
         bonfireBtnOn.classList.add(`hide`)
         bonfireBtn.classList.remove(`hide`)
 
         sounds.bgAudio[3].pause()
 
         bonfireBtnOn.blur()
+    })
+
+    volBonfire.addEventListener('input', () => {
+        sounds.bgAudio[3].volume = volBonfire.value
     })
 
     btnLightMode.addEventListener('click', () => {

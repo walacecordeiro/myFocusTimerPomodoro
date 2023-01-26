@@ -8,6 +8,8 @@ import {
     btnPause,
     btnStop,
     btnSet,
+    btnLightMode,
+    btnDarkMode,
 
     minutesDisplay,
     secondsDisplay
@@ -22,7 +24,9 @@ const controls = Controls({
     btnPlay,
     btnPause,
     btnSet,
-    btnStop
+    btnStop,
+    btnLightMode,
+    btnDarkMode
 })
 
 //  TIMER

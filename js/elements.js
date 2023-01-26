@@ -20,6 +20,10 @@ const coffeeShopBtnOn = document.querySelector('.coffeeShopBtnOn')
 const bonfireBtn = document.querySelector('.bonfireBtn')
 const bonfireBtnOn = document.querySelector('.bonfireBtnOn')
 
+//  MODES
+const btnLightMode = document.querySelector('.lightMode')
+const btnDarkMode = document.querySelector('.darkMode')
+
 export {
     btnPlay,
     btnPause,
@@ -38,5 +42,8 @@ export {
     coffeeShopBtn,
     coffeeShopBtnOn,
     bonfireBtn,
-    bonfireBtnOn
+    bonfireBtnOn,
+
+    btnLightMode,
+    btnDarkMode
 }

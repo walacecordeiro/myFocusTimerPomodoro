@@ -1,11 +1,11 @@
-// import Timer from "./timer"
-
 
 export default function Controls({
     btnPlay,
     btnPause,
     btnSet,
-    btnStop
+    btnStop,
+    btnLightMode,
+    btnDarkMode
 }) {
 
     function play(){
@@ -39,11 +39,21 @@ export default function Controls({
         
     }
 
+    function mode(){
+        const html = document.documentElement
+
+        btnLightMode.classList.toggle('hide')
+        btnDarkMode.classList.toggle('hide')
+        
+        html.classList.toggle('darkMode')
+    }
+
     return {
         reset,
         play,
         pause,
         // startPauseKey,
-        getMinutes
+        getMinutes,
+        mode
     }
 }

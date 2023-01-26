@@ -3,6 +3,7 @@ import {
     btnPause,
     btnStop,
     btnSet,
+
     fiveMoreMinutesBtn,
     minusFiveMinutesBtn,
 
@@ -13,7 +14,10 @@ import {
     coffeeShopBtn,
     coffeeShopBtnOn,
     bonfireBtn,
-    bonfireBtnOn
+    bonfireBtnOn,
+
+    btnLightMode,
+    btnDarkMode
 } from "./elements.js"
 
 export default function ({controls, timer, sounds}) {
@@ -152,6 +156,14 @@ export default function ({controls, timer, sounds}) {
         sounds.bgAudio[3].pause()
 
         bonfireBtnOn.blur()
+    })
+
+    btnLightMode.addEventListener('click', () => {
+        controls.mode()
+    })
+    
+    btnDarkMode.addEventListener('click', () => {
+        controls.mode()
     })
 
 }

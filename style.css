@@ -7,19 +7,34 @@
 :root {
     font-size: 62.5%;
 
-    --txt-black: #323238;
+    --txt: #323238;
+
+    --bg-mode: #FFFFFF;
 
     --bg-btnSounds: #E1E1E6;
     --bg--btnSoundsOn: #02799D;
 
-    --color-fill-hover-iconeSounds: #FFFFFF;
+    --color-fill-icone: #323238;
 }
 
-body, figcaption{
+.darkMode{
+    --txt: #FFFFFF;
+    
+    --bg-mode: #121214;
+    
+    --bg-btnSounds: #29292E;
+    --bg--btnSoundsOn: #0A3442;
+    
+    --color-fill-icone: #C4C4CC;
+}
+
+body,
+figcaption {
     font-family: 'Roboto', sans-serif;
 }
 
 body {
+    background: var(--bg-mode);
     font-size: 1.6rem;
 
     display: grid;
@@ -27,15 +42,15 @@ body {
     min-height: 100vh;
 }
 
-.hide{
+.hide {
     display: none;
 }
 
-.effects{
+.effects {
     animation: btnControlsEffects .1s;
 }
 
-#container{
+#container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -43,25 +58,25 @@ body {
     max-width: 82.1rem;
 }
 
-#timerAndControls{
+#timerAndControls {
     text-align: center;
 }
 
-#timerAndControls span{
+#timerAndControls span {
     font-size: clamp(1.6rem, 1.6rem + 15vw, 12.6rem);
 
     text-align: center;
     text-transform: uppercase;
-    
-    color: var(--txt-black);
+
+    color: var(--txt);
 }
 
-#controls{
+#controls {
     display: flex;
     justify-content: space-between;
 }
 
-#controls button{
+#controls button {
     position: relative;
     border: none;
     background-color: transparent;
@@ -69,32 +84,36 @@ body {
     align-content: center;
 }
 
-#controls button:hover{
+#controls button:hover {
     cursor: pointer;
     transform: scale(1.1);
 }
 
+#controls button svg path {
+    fill: var(--color-fill-icone);
+}
 
-#controls button figcaption{
+#controls button figcaption {
     position: absolute;
     width: 100%;
     padding-top: 1rem;
     display: none;
+    color: var(--color-fill-icone);
 }
 
-#controls button:hover figcaption{
+#controls button:hover figcaption {
     display: block;
 }
 
-#typesOfSounds{
+#typesOfSounds {
     display: grid;
-    grid-template-areas: 
-    "A B"
+    grid-template-areas:
+        "A B"
     ;
     gap: 3.2rem;
 }
 
-#typesOfSounds button{
+#typesOfSounds button, #btnMode button {
     border: none;
     padding: 4.8rem;
     background: var(--bg-btnSounds);
@@ -103,62 +122,81 @@ body {
     transition: all .2s;
 }
 
-#typesOfSounds button:hover{
+#typesOfSounds button:hover, #btnMode button:hover{
     transform: scale(1.1);
     cursor: pointer;
 }
 
-.activeSoundBg{
+#typesOfSounds button svg path {
+    fill: var(--color-fill-icone);
+}
+
+.activeSoundBg {
     background: var(--bg--btnSoundsOn) !important;
 }
-/* .activeSoundFill{
-    fill: var(--color-fill-hover-iconeSounds);
-} */
+
+#btnMode {
+    position: fixed;
+    right: 3vw;
+    top: 3vw;
+}
+
+#btnMode button {
+    border: none;
+    background-color: transparent;
+    padding: .3rem;
+    border-radius: 10%;
+}
+
+.soundActiveButton{
+    fill: white !important;
+}
 
 /*  MOBILE */
 
-@media (max-width: 47.938em){
-    body{
+@media (max-width: 47.938em) {
+    body {
         position: relative;
     }
-    #container{
+
+    #container {
         flex-direction: column;
     }
 
-    #controls button svg{
+    #controls button svg {
         width: 3.5rem;
     }
 
-    #controls button figcaption{
+    #controls button figcaption {
         padding-top: .5rem;
         font-size: 1.2rem;
         display: block;
     }
 
-    #typesOfSounds{
-        grid-template-areas: 
-        "A"
+    #typesOfSounds {
+        grid-template-areas:
+            "A"
         ;
         gap: 1rem;
-        position: absolute;
+        position: fixed;
         right: 3vw;
         top: 3vw;
         animation: downUp 3s 1s backwards;
     }
-    
-    #typesOfSounds button{
+
+    #typesOfSounds button {
         padding: 1rem;
         border-radius: .5rem;
 
         transition: all .2s;
     }
-    
-    #typesOfSounds button svg{
+
+    #typesOfSounds button svg {
         width: 3rem;
         height: 3rem;
     }
 
-    #timerAndControls #controls button svg{
+    #timerAndControls #controls button svg {
         width: clamp(3rem, 7vw, 4.8rem);
         height: clamp(3rem, 7vw, 4.8rem);
     }
@@ -167,23 +205,23 @@ body {
 
 /*  ANIMATIONS */
 
-@keyframes btnControlsEffects{
-    from{
+@keyframes btnControlsEffects {
+    from {
         transform: scale(0);
     }
 
-    to{
+    to {
         transform: scale(1.1);
     }
 }
 
-@keyframes downUp{
-    from{
+@keyframes downUp {
+    from {
         opacity: 0;
         transform: translateY(100vw);
     }
 
-    to{
+    to {
         opacity: 1;
         transform: translateY(0);
     }

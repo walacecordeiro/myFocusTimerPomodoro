@@ -9,7 +9,9 @@ export default function () {
         new Audio("./sounds/bonfire.wav")
     ]
 
-    bgAudio.loop = true
+    bgAudio.map(audio => audio.loop = true)
+
+    // bgAudio.loop = true
 
     function soundWhenPressingButton(){
         buttonPressAudio.play()

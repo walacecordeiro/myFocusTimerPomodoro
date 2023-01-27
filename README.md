@@ -18,7 +18,7 @@ A timer with background audio for concentration and application of the pomodoro 
 <br>
 
 <p align="center">
-  <img alt="project layout image" src="./.github/preview.png" width="auto" height="350px">
+  <img alt="project layout image" src="./.github/preview.png" width="500" height="auto">
 </p>
 
 ## 🚀 Technologies
@@ -37,7 +37,7 @@ A simple stopwatch with a great dedign.
 
 ## 🔖 Layout
 
-You can view the project layout through [THIS LINK](https://www.figma.com/file/nnUNT3wN59QXONLotsiFfZ/Stage-05---Focus-Timer-2.0-(Copy)?node-id=0%3A4&t=4woSavEdrueOc0m6-0). A [Figma](https://figma.com) account is required to access it.
+You can view the project layout through [THIS LINK](https://www.figma.com/file/kzLMfmhOeMOBI8oXXwEud3/Stage-05---Dark-Mode-FocusTimer-(Copy)?node-id=0%3A1&t=TFdcxvPlogGlIt11-0). A [Figma](https://figma.com) account is required to access it.
 
 ## :memo: License
 

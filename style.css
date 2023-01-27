@@ -15,6 +15,7 @@
     --bg--btnSoundsOn: #02799D;
 
     --color-fill-icone: #323238;
+    --color-volume-control: #ffffff;
 }
 
 .darkMode{
@@ -126,11 +127,30 @@ body {
     appearance: none;
     cursor: e-resize;
     width: 9rem;
-    background: var(--color-fill-icone);
+    background: var(--color-volume-control);
     margin-top: 3.2rem;
     height: .4rem;
     
     border-radius: .5rem;
+}
+
+#typesOfSounds button input::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 50%; 
+
+    background: var(--color-volume-control);
+}
+
+#typesOfSounds button input::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%; 
+
+    background: #2796ee;
+    cursor: pointer;
 }
 
 #typesOfSounds button:hover, #btnMode button:hover{
@@ -198,10 +218,19 @@ body {
     }
 
     #typesOfSounds button, #btnMode button {
-        padding: 1rem;
+        width: clamp(5rem , 18vw, 13.8rem);
+        height: clamp(5rem , 24vw, 13.8rem);
         border-radius: .5rem;
 
         transition: all .2s;
+    }
+
+    #typesOfSounds button input{
+        width: 85%;
+        margin-top: clamp(1rem , 3vw, 3.2rem);;
+        height: .4rem;
+        
+        border-radius: .5rem;
     }
 
     #btnMode {
